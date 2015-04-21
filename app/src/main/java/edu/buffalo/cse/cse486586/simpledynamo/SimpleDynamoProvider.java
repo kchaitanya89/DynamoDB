@@ -44,6 +44,10 @@ public class SimpleDynamoProvider extends ContentProvider {
     private String hashedPort;
     private int insertReplyCounter = 0;
 
+    boolean notifyRequiredQuery;
+    boolean notifyRequiredDelete;
+    boolean notifyRequiredInsert;
+
     private static final String TYPE_INSERT         = "INSERT";
     private static final String TYPE_INSERT_REPLY   = "INSERT_REPLY";
     private static final String TYPE_QUERY          = "QUERY";
@@ -89,17 +93,21 @@ public class SimpleDynamoProvider extends ContentProvider {
                 Log.d(DEBUG, "coordinatorNode.next.value.port -" + coordinatorNode.next.value.port);
                 Log.d(DEBUG, "coordinatorNode.next.next.value.port -" + coordinatorNode.next.next.value.port);
 
+                deleteReplyCounter = 0;
+                deleteMonitor = new Object();
+                notifyRequiredDelete = true;
+
                 new Thread(new ClientTask(coordinatorNode.value.port,
                                           TYPE_DELETE + SEPARATOR + avdPort + SEPARATOR + selection)).start();
                 new Thread(new ClientTask(coordinatorNode.next.value.port,
                                           TYPE_DELETE + SEPARATOR + avdPort + SEPARATOR + selection)).start();
                 new Thread(new ClientTask(coordinatorNode.next.next.value.port,
                                           TYPE_DELETE + SEPARATOR + avdPort + SEPARATOR + selection)).start();
-                deleteReplyCounter = 0;
-                deleteMonitor = new Object();
                 try {
                     synchronized (deleteMonitor) {
-                        deleteMonitor.wait();
+                        if (notifyRequiredDelete) {
+                            deleteMonitor.wait();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -234,7 +242,7 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    synchronized public Uri insert(Uri uri, ContentValues values) {
         try {
             Log.d(DEBUG, "Inserting - " + values.toString());
 
@@ -252,6 +260,10 @@ public class SimpleDynamoProvider extends ContentProvider {
                         + coordinator.value.port + ", " + coordinator.next.value.port + ", "
                         + coordinator.next.next.value.port);
 
+                insertReplyCounter = 0;
+                insertReplyMonitor = new Object();
+                notifyRequiredInsert = true;
+
                 new Thread(new ClientTask(coordinator.value.port,
                                           TYPE_INSERT + SEPARATOR + key + SEPARATOR + value + SEPARATOR +
                                                   avdPort)).start();
@@ -261,11 +273,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                 new Thread(new ClientTask(coordinator.next.next.value.port,
                                           TYPE_INSERT + SEPARATOR + key + SEPARATOR + value + SEPARATOR +
                                                   avdPort)).start();
-                insertReplyCounter = 0;
-                insertReplyMonitor = new Object();
                 try {
                     synchronized (insertReplyMonitor) {
-                        insertReplyMonitor.wait();
+                        if (notifyRequiredInsert) {
+                            insertReplyMonitor.wait();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -301,7 +313,7 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
+    synchronized public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
                         String sortOrder) {
         try {
             Log.d(DEBUG, "Querying with selection = " + selection);
@@ -313,12 +325,15 @@ public class SimpleDynamoProvider extends ContentProvider {
                 sharedMatrixCursor = queryNetworkContent();
             } else {
                 //send request to the 3 responsible nodes and wait till you hear back from at least 2
-//                if (sharedMatrixCursor == null) {
                 try {
                     Node coordinator = findCoordinator(selection);
                     Log.d(DEBUG, "From Node " + avdPort + " sending query request for " + selection + " to nodes "
                             + coordinator.value.port + ", " + coordinator.next.value.port + ", "
                             + coordinator.next.next.value.port);
+
+                    notifyRequiredQuery = true;
+                    queryReplyCounter = 0;
+                    queryMonitor = new Object();
 
                     new Thread(new ClientTask(coordinator.value.port,
                                               TYPE_QUERY + SEPARATOR + avdPort + SEPARATOR + selection))
@@ -330,11 +345,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                                               TYPE_QUERY + SEPARATOR + avdPort + SEPARATOR + selection))
                             .start();
 
-                    queryReplyCounter = 0;
-                    queryMonitor = new Object();
 
                     synchronized (queryMonitor) {
-                        queryMonitor.wait();
+                        if (notifyRequiredQuery) {
+                            queryMonitor.wait();
+                        }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -344,8 +359,6 @@ public class SimpleDynamoProvider extends ContentProvider {
                 Log.d(DEBUG, "Cursor count = " + sharedMatrixCursor.getCount());
                 Log.d(DEBUG,
                       "Cursor values = " + sharedMatrixCursor.getString(0) + ":" + sharedMatrixCursor.getString(1));
-
-//                }
             }
         } catch (Exception e) {
             //TODO - remove this after testing
@@ -471,30 +484,44 @@ public class SimpleDynamoProvider extends ContentProvider {
                         String line = new BufferedReader(new InputStreamReader(client
                                                                                        .getInputStream())).readLine();
                         String[] split = line.split(SEPARATOR);
-                        Log.d(DEBUG, "Message from the client = " + line);
+                        Log.d(DEBUG, "ServerTask message received = " + line);
 
                         if (split[0].equals(TYPE_INSERT)) {
                             //Insert request from coordinator
                             //"1" + SEPARATOR + key + SEPARATOR + value + SEPARATOR + avdPort
-
-
-                            writeToLocalFile(split[1], split[2]);
+                            String key = split[1];
+                            String value = split[2];
+                            String requestingNode = split[3];
+                            writeToLocalFile(key, value);
 
                             Log.d(DEBUG,
-                                  "Honored insert req from coordinator for key - " + split[1] + " value -" + split[2]);
+                                  "Completed insert req from coordinator for key - " + key + " value -" +
+                                          value);
 
-                            new Thread(new ClientTask(split[3],
-                                                      TYPE_INSERT_REPLY + SEPARATOR + avdPort)).start();
+                            new Thread(new ClientTask(requestingNode,
+                                                      TYPE_INSERT_REPLY + SEPARATOR + avdPort + SEPARATOR + key
+                                                              + SEPARATOR + value))
+                                    .start();
 
                         } else if (split[0].equals(TYPE_INSERT_REPLY)) {
                             //Insert successful message from a node in preference list
+                            Log.d(DEBUG,
+                                  "Received insert completion message from Node - " + split[1] + " for key-value=" +
+                                          split[2] + "-" + split[3]);
+
                             insertReplyCounter++;
-                            if (insertReplyCounter > 1) {
+
+                            Log.d(DEBUG,
+                                  "incremented the insert reply counter. insertReplyCounter = " + insertReplyCounter);
+
+                            if (insertReplyCounter == 3) {
                                 synchronized (insertReplyMonitor) {
+                                    notifyRequiredInsert = false;
+                                    Log.d(DEBUG,
+                                          "notifying insert method "+split[2]);
                                     insertReplyMonitor.notifyAll();
                                 }
                             }
-                            Log.d(DEBUG, "Done receiving insert completion message from Node - " + split[1]);
 
                         } else if (split[0].equals(TYPE_QUERY)) {
                             //Query request from a Node
@@ -531,8 +558,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                             }
 
                             Log.d(DEBUG, "queryReplyCounter = " + queryReplyCounter);
-                            if (queryReplyCounter > 1) {
+                            if (queryReplyCounter == 3) {
                                 synchronized (queryMonitor) {
+                                    notifyRequiredQuery = false;
+                                    Log.d(DEBUG,
+                                          "notifying query method "+split[2]);
                                     queryMonitor.notifyAll();
                                 }
                             }
@@ -595,8 +625,9 @@ public class SimpleDynamoProvider extends ContentProvider {
                             String requestingPort = split[1];
                             Log.d(DEBUG, "Current deletion counter - " + deleteReplyCounter);
                             deleteReplyCounter++;
-                            if (deleteReplyCounter > 1) {
+                            if (deleteReplyCounter == 3) {
                                 synchronized (deleteMonitor) {
+                                    notifyRequiredDelete = false;
                                     deleteMonitor.notifyAll();
                                 }
                             }
@@ -653,10 +684,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                         OutputStream os = socket.getOutputStream();
                 ) {
 
-                    Log.d(DEBUG, "ClientThread - Sending the message - " + messageToServer + " to - " + portToWrite);
+//                    Log.d(DEBUG, "ClientThread - Sending the message - " + messageToServer + " to - " + portToWrite);
                     os.write(messageToServer.getBytes());
                     os.flush();
-                    Log.d(DEBUG, "Message " + messageToServer + " flushed from client to - " + portToWrite);
+//                    Log.d(DEBUG, "ClientThread - Message " + messageToServer + " flushed from client to - " +
+// portToWrite);
 
                     socket.close();
                 } catch (IOException e) {
