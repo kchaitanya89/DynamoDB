@@ -18,6 +18,10 @@
         <option name="packageNamePattern" value="" />
         <option name="pid" value="" />
       </filter>
+      <filter>
+        <option name="name" value="app: edu.buffalo.cse.cse486586.simpledynamo" />
+        <option name="packageNamePattern" value="edu.buffalo.cse.cse486586.simpledynamo" />
+      </filter>
     </filters>
   </component>
   <component name="AndroidLayouts">
@@ -54,7 +58,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="525">
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="390">
               <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
               <folding />
             </state>
@@ -64,9 +68,12 @@
       <file leaf-file-name="SimpleDynamoActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
               <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-              <folding />
+              <folding>
+                <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+                <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,14 +81,27 @@
       <file leaf-file-name="SimpleDynamoProvider.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1929499" vertical-offset="3511" max-vertical-offset="10200">
-              <caret line="244" column="17" selection-start-line="244" selection-start-column="17" selection-end-line="244" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.86875" vertical-offset="10331" max-vertical-offset="11700">
+              <caret line="873" column="111" selection-start-line="873" selection-start-column="111" selection-end-line="873" selection-end-column="111" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-                <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+                <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="e#9156#9257#0" expanded="true" />
+                <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="e#18376#18442#0" expanded="true" />
+                <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="e#21065#22330#0" expanded="true" />
+                <element signature="e#22273#22274#0" expanded="true" />
+                <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="e#31462#31571#0" expanded="true" />
+                <element signature="e#33614#33682#0" expanded="true" />
+                <element signature="e#34921#35030#0" expanded="true" />
+                <element signature="e#40582#40693#0" expanded="true" />
+                <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,9 +110,11 @@
       <file leaf-file-name="CircularLinkedList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1770">
-              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="780">
+              <caret line="75" column="14" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="14" />
+              <folding>
+                <element signature="method#equals#0;class#Node#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -763,9 +785,9 @@
       <list>
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/Test.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" />
       </list>
     </option>
@@ -776,7 +798,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="722" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -792,7 +814,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -804,8 +826,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -813,64 +835,19 @@
               <option name="myItemId" value="SimpleDynamo" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="SimpleDynamo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimpleDynamo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simpledynamo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimpleDynamo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simpledynamo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CircularLinkedList.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -890,6 +867,8 @@
     <property name="dynamic.classpath" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="avd3" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="false" name="CircularLinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1099,8 +1078,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="722" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1114,7 +1093,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.8702163" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6468647" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1153,7 +1132,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5174709" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="23" width="1280" height="722" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5594059" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
@@ -1180,10 +1159,58 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6849" max-vertical-offset="11280">
+          <caret line="504" column="41" selection-start-line="504" selection-start-column="41" selection-end-line="504" selection-end-column="41" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1770">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
@@ -1196,20 +1223,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7995" max-vertical-offset="9465">
-          <caret line="608" column="55" selection-start-line="608" selection-start-column="55" selection-end-line="608" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3511" max-vertical-offset="10200">
+          <caret line="244" column="17" selection-start-line="244" selection-start-column="17" selection-end-line="244" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1218,7 +1261,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1770">
           <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7995" max-vertical-offset="9465">
+          <caret line="608" column="55" selection-start-line="608" selection-start-column="55" selection-end-line="608" selection-end-column="55" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1770">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,7 +1335,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1243,11 +1347,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="9420">
           <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1256,7 +1373,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1770">
           <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,7 +1391,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1281,11 +1403,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="8835">
           <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1294,7 +1429,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="785" max-vertical-offset="1770">
           <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1310,7 +1447,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1319,11 +1459,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1414" max-vertical-offset="8940">
           <caret line="167" column="45" selection-start-line="167" selection-start-column="45" selection-end-line="167" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1332,7 +1485,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1605">
           <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1348,7 +1503,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1357,11 +1515,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1597" max-vertical-offset="9375">
           <caret line="166" column="30" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1370,36 +1541,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="112" max-vertical-offset="1425">
           <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1072" max-vertical-offset="9405">
-          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1416,7 +1559,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1072" max-vertical-offset="9405">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1425,11 +1617,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="900">
           <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1446,7 +1651,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="510">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1455,11 +1663,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1476,7 +1697,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="570">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1485,11 +1709,24 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1559,32 +1796,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="805" max-vertical-offset="1710">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="method#onCreate#0;class#SimpleDynamoActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#SimpleDynamoActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="780">
+          <caret line="75" column="14" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="14" />
+          <folding>
+            <element signature="method#equals#0;class#Node#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1929499" vertical-offset="3511" max-vertical-offset="10200">
-          <caret line="244" column="17" selection-start-line="244" selection-start-column="17" selection-end-line="244" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.86875" vertical-offset="10331" max-vertical-offset="11700">
+          <caret line="873" column="111" selection-start-line="873" selection-start-column="111" selection-end-line="873" selection-end-column="111" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getType#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#update#0;class#SimpleDynamoProvider#0" expanded="false" />
-            <element signature="method#genHash#0;class#SimpleDynamoProvider#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#insert#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#9156#9257#0" expanded="true" />
+            <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#18376#18442#0" expanded="true" />
+            <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#21065#22330#0" expanded="true" />
+            <element signature="e#22273#22274#0" expanded="true" />
+            <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#31462#31571#0" expanded="true" />
+            <element signature="e#33614#33682#0" expanded="true" />
+            <element signature="e#34921#35030#0" expanded="true" />
+            <element signature="e#40582#40693#0" expanded="true" />
+            <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
           </folding>
         </state>
       </provider>

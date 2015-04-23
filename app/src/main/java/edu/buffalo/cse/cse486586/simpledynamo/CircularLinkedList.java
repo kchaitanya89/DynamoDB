@@ -73,12 +73,21 @@ public class CircularLinkedList {
 }
 
 class Node {
-    Port    value;
-    Node    next;
+    Port value;
+    Node next;
 
     public Node(String port, String hash) {
         value = new Port(port, hash);
         next = this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Node) {
+            return value.port.equals(((Node) o).value.port);
+        } else {
+            return false;
+        }
     }
 
     @Override
