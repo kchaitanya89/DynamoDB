@@ -3,6 +3,8 @@ package edu.buffalo.cse.cse486586.simpledynamo;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by Chaitanya on 4/20/15.
@@ -12,14 +14,7 @@ public class Test{
     static CircularLinkedList chord ;
     public static void main(String[] args) {
         try{
-            chord = new CircularLinkedList();
-            chord.insert("5554", genHash("5554"));
-            chord.insert("5556", genHash("5556"));
-            chord.insert("5558", genHash("5558"));
-            chord.insert("5560", genHash("5560"));
-            chord.insert("5562", genHash("5562"));
-
-            chord.printList();
+            TreeMap<String,String> map = new TreeMap<>();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Exception");
