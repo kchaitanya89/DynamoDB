@@ -55,12 +55,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="525">
-              <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
-              <folding />
+            <state vertical-scroll-proportion="0.18485916" vertical-offset="0" max-vertical-offset="568">
+              <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
+              <folding>
+                <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,33 +77,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleDynamoProvider.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SimpleDynamoProvider.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43893805" vertical-offset="2287" max-vertical-offset="12375">
-              <caret line="238" column="29" selection-start-line="238" selection-start-column="29" selection-end-line="238" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3090" max-vertical-offset="14685">
+              <caret line="255" column="33" selection-start-line="255" selection-start-column="33" selection-end-line="255" selection-end-column="33" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-                <element signature="e#15700#15766#0" expanded="true" />
+                <element signature="e#18039#18109#0" expanded="true" />
                 <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-                <element signature="e#18389#19654#0" expanded="true" />
-                <element signature="e#19597#19598#0" expanded="true" />
                 <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-                <element signature="e#30556#30624#0" expanded="true" />
-                <element signature="e#31863#31972#0" expanded="true" />
-                <element signature="e#37524#37635#0" expanded="true" />
+                <element signature="e#27424#27457#0" expanded="true" />
+                <element signature="e#27777#27835#0" expanded="true" />
+                <element signature="e#28092#28119#0" expanded="true" />
+                <element signature="e#28808#28824#0" expanded="true" />
+                <element signature="e#29608#29635#0" expanded="true" />
+                <element signature="e#29866#29882#0" expanded="true" />
+                <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
                 <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+                <element signature="e#43612#43721#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,7 +128,7 @@
       <file leaf-file-name="Test.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="945">
               <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
               <folding />
             </state>
@@ -793,10 +811,10 @@
       <list>
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/Test.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -806,7 +824,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -834,6 +852,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -930,7 +949,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -953,6 +971,9 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="avd3" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="false" name="CircularLinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1162,12 +1183,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="712" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1177,13 +1197,13 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6526138" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8667763" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1191,6 +1211,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1205,7 +1226,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1216,9 +1237,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6526138" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7504216" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="0" y="200" width="1280" height="497" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1260,27 +1281,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6849" max-vertical-offset="11280">
           <caret line="504" column="41" selection-start-line="504" selection-start-column="41" selection-end-line="504" selection-end-column="41" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1297,7 +1334,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1314,27 +1353,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3511" max-vertical-offset="10200">
           <caret line="244" column="17" selection-start-line="244" selection-start-column="17" selection-end-line="244" selection-end-column="17" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1351,7 +1406,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1368,27 +1425,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="7995" max-vertical-offset="9465">
           <caret line="608" column="55" selection-start-line="608" selection-start-column="55" selection-end-line="608" selection-end-column="55" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1405,7 +1478,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="525">
           <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1422,27 +1497,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="9420">
           <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1459,7 +1550,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1476,27 +1569,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="8835">
           <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1513,7 +1622,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1530,27 +1641,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1414" max-vertical-offset="8940">
           <caret line="167" column="45" selection-start-line="167" selection-start-column="45" selection-end-line="167" selection-end-column="45" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1567,7 +1694,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1584,27 +1713,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1597" max-vertical-offset="9375">
           <caret line="166" column="30" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="30" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1621,7 +1766,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1638,27 +1785,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1072" max-vertical-offset="9405">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1667,7 +1830,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1684,27 +1849,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="900">
           <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1713,7 +1894,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1730,27 +1913,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1759,7 +1958,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1776,27 +1977,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1005">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1805,7 +2022,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1851,26 +2070,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="24" column="91" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="780">
-          <caret line="75" column="14" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1883,32 +2086,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/CircularLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="780">
+          <caret line="75" column="14" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/buffalo/cse/cse486586/simpledynamo/SimpleDynamoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43893805" vertical-offset="2287" max-vertical-offset="12375">
-          <caret line="238" column="29" selection-start-line="238" selection-start-column="29" selection-end-line="238" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3090" max-vertical-offset="14685">
+          <caret line="255" column="33" selection-start-line="255" selection-start-column="33" selection-end-line="255" selection-end-column="33" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#writeToLocalFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#query#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#querySpecificContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#15700#15766#0" expanded="true" />
+            <element signature="e#18039#18109#0" expanded="true" />
             <element signature="method#queryLocalContentInternal#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#queryNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#18389#19654#0" expanded="true" />
-            <element signature="e#19597#19598#0" expanded="true" />
             <element signature="method#delete#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteSpecificFile#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteLocalContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#deleteNetworkContent#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
-            <element signature="e#30556#30624#0" expanded="true" />
-            <element signature="e#31863#31972#0" expanded="true" />
-            <element signature="e#37524#37635#0" expanded="true" />
+            <element signature="e#27424#27457#0" expanded="true" />
+            <element signature="e#27777#27835#0" expanded="true" />
+            <element signature="e#28092#28119#0" expanded="true" />
+            <element signature="e#28808#28824#0" expanded="true" />
+            <element signature="e#29608#29635#0" expanded="true" />
+            <element signature="e#29866#29882#0" expanded="true" />
+            <element signature="method#replyRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestRejoin#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestDelete#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestNwQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestQuery#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#replyInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#requestInsert#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#checkTimeAndWrite#0;class#ServerTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="method#ClientTask#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
             <element signature="method#run#0;class#ClientTask#0;class#SimpleDynamoProvider#0" expanded="true" />
+            <element signature="e#43612#43721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18485916" vertical-offset="0" max-vertical-offset="568">
+          <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
+          <folding>
+            <element signature="tag#application#0;tag#manifest#0" expanded="true" />
           </folding>
         </state>
       </provider>

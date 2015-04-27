@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -22,7 +23,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.HashMap;
 import java.util.concurrent.Callable;
@@ -34,49 +34,52 @@ import java.util.concurrent.TimeUnit;
 
 public class SimpleDynamoProvider extends ContentProvider {
 
-    private static final String DEBUG     = "DEBUG";
-    private static final String SEPARATOR = ":";
-
     private String port;
     private String avdPort;
 
-    private static final String TYPE_INSERT         = "INSERT";
-    private static final String TYPE_INSERT_REPLY   = "INSERT_REPLY";
-    private static final String TYPE_QUERY          = "QUERY";
-    private static final String TYPE_QUERY_REPLY    = "QUERY_REPLY";
-    private static final String TYPE_REJOIN_QUERY   = "REJOIN_QUERY";
-    private static final String TYPE_REJOIN_REPLY   = "REJOIN_REPLY";
-    private static final String TYPE_NW_QUERY       = "NW_QUERY";
-    private static final String TYPE_NW_QUERY_REPLY = "NW_QUERY_REPLY";
-    private static final String TYPE_DELETE         = "DELETE";
-    private static final String TYPE_DELETE_REPLY   = "DELETE_REPLY";
-    private static final String TYPE_NW_DELETE      = "NW_DELETE";
+    private static final String DEBUG               = "DEBUG";
+    private static final String SEPARATOR           = ":";
+    private static final String TIMESTAMP_DELIMITER = "-";
+
+    private static final String TYPE_INSERT         = "INSERT_FROM";
+    private static final String TYPE_INSERT_REPLY   = "INSERT_REPLY_FROM";
+    private static final String TYPE_QUERY          = "QUERY_FROM";
+    private static final String TYPE_QUERY_REPLY    = "QUERY_REPLY_FROM";
+    private static final String TYPE_REJOIN_QUERY   = "REJOIN_QUERY_FROM";
+    private static final String TYPE_REJOIN_REPLY   = "REJOIN_REPLY_FROM";
+    private static final String TYPE_NW_QUERY       = "NW_QUERY_FROM";
+    private static final String TYPE_NW_QUERY_REPLY = "NW_QUERY_REPLY_FROM";
+    private static final String TYPE_DELETE         = "DELETE_FROM";
+    private static final String TYPE_DELETE_REPLY   = "DELETE_REPLY_FROM";
+    private static final String TYPE_NW_DELETE      = "NW_DELETE_FROM";
 
     CircularLinkedList chord;
     Node               successor;
     Node               firstPredecessor;
 
-    Object            serverMonitor;
-    boolean           notifyRequiredServer;
-    Object            queryMonitor;
-    int               queryReplyCounter;
-    boolean           notifyRequiredQuery;
-    Object            insertReplyMonitor;
-    ArrayList<String> insertReplyingNodes;
-    boolean           notifyRequiredInsert;
-    Object            networkQueryMonitor;
-    Object            deleteMonitor;
-    int               deleteReplyCounter;
-    int               networkQueryReplyCounter;
-    boolean           notifyRequiredDelete;
-    Object            rejoinMonitor;
-    int               rejoinReplyCounter;
-    boolean           notifyRequiredRejoin;
+    Object  serverMonitor;
+    boolean notifyRequiredServer;
+    Object  queryMonitor;
+    int     queryReplyCounter;
+    boolean notifyRequiredQuery;
+    Object  insertReplyMonitor;
+    int     insertReplyCounter;
+    boolean notifyRequiredInsert;
+    Object  networkQueryMonitor;
+    Object  deleteMonitor;
+    int     deleteReplyCounter;
+    int     networkQueryReplyCounter;
+    boolean notifyRequiredDelete;
+    Object  rejoinMonitor;
+    int     rejoinReplyCounter;
+    boolean notifyRequiredRejoin;
 
-    MatrixCursor sharedMatrixCursor = null;
-    String[]     sharedColumns      = new String[]{"key", "value"};
+    MatrixCursor            sharedMatrixCursor = null;
+    HashMap<String, String> cursorMap          = null;
+    String[]                sharedColumns      = new String[]{"key", "value"};
 
     HashMap<String, Boolean> queryMap;
+    HashMap<String, Boolean> insertMap;
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
@@ -130,16 +133,15 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     @Override
-    public boolean onCreate() {
+    synchronized public boolean onCreate() {
         try {
-            Log.d(DEBUG, "Content provider created");
+            Log.d(DEBUG, "OnCreate started");
 
             TelephonyManager tel = (TelephonyManager) getContext().getSystemService(Context
                                                                                             .TELEPHONY_SERVICE);
             avdPort = tel.getLine1Number().substring(tel.getLine1Number().length() - 4);
             port = String.valueOf((Integer.parseInt(avdPort) * 2));
 
-            Log.d(DEBUG, "Telephony manager setup done.");
             Log.d(DEBUG, "avdPort = " + avdPort);
             Log.d(DEBUG, "port = " + port);
 
@@ -165,10 +167,10 @@ public class SimpleDynamoProvider extends ContentProvider {
             } while (current != chord.root);
 
             Log.d(DEBUG,
-                  "Preference list for the current node - " + avdPort + ", " + successor.value.port + ", " +
-                          "" + successor.next.value.port);
+                  "Preference list - " + avdPort + ", " + successor.value.port + ", " + "" + successor.next.value.port);
             Log.d(DEBUG, "=================================");
 
+            //Server thread should start before anything else. Hence the monitor
             serverMonitor = new Object();
             notifyRequiredServer = true;
 
@@ -181,13 +183,13 @@ public class SimpleDynamoProvider extends ContentProvider {
                 }
             }
 
-            rejoinMonitor = new Object();
-            rejoinReplyCounter = 0;
-            notifyRequiredRejoin = true;
-
             Log.d(DEBUG,
                   "Sending rejoin requests from " + avdPort + " to " + firstPredecessor + ", " +
                           "" + firstPredecessor.next + ", " + successor);
+
+            rejoinReplyCounter = 0;
+            notifyRequiredRejoin = true;
+            rejoinMonitor = new Object();
 
             //Query other nodes for data
             new Thread(new ClientTask(firstPredecessor.toString(), TYPE_REJOIN_QUERY + SEPARATOR + avdPort))
@@ -196,8 +198,39 @@ public class SimpleDynamoProvider extends ContentProvider {
                     .start();
             new Thread(new ClientTask(successor.toString(), TYPE_REJOIN_QUERY + SEPARATOR + avdPort))
                     .start();
+            new Thread(new ClientTask(successor.next.toString(), TYPE_REJOIN_QUERY + SEPARATOR + avdPort))
+                    .start();
+
+            ScheduledExecutorService scheduledThreadPool = Executors
+                    .newScheduledThreadPool(1);
+            ScheduledFuture<String> future = null;
+            future = scheduledThreadPool.schedule(new Callable<String>() {
+                                                      @Override
+                                                      public String call() throws Exception {
+                                                          String reply = "ALL NODES REPLIED";
+                                                          synchronized (rejoinMonitor) {
+                                                              notifyRequiredRejoin = false;
+                                                              rejoinMonitor.notifyAll();
+                                                          }
+                                                          return reply;
+                                                      }
+                                                  }, 4,
+                                                  TimeUnit.SECONDS);
+            synchronized (rejoinMonitor) {
+                if (!notifyRequiredRejoin) {
+                    Log.d(DEBUG, "Begin wait on create");
+                    rejoinMonitor.wait();
+                    Log.d(DEBUG, "wait over on create");
+                }
+            }
+            try {
+                Log.d(DEBUG, future.get());
+            } catch (InterruptedException | ExecutionException e) {
+                Log.e(DEBUG, e.getMessage(), e);
+            }
 
             queryMap = new HashMap<>();
+            insertMap = new HashMap<>();
         } catch (Exception e) {
             //TODO - remove this after testing
             Log.e(DEBUG, e.getMessage(), e);
@@ -207,12 +240,12 @@ public class SimpleDynamoProvider extends ContentProvider {
 
     @Override
     synchronized public Uri insert(Uri uri, ContentValues values) {
+
+        String key = values.get("key").toString();
+        String value = values.get("value").toString();
+
         try {
             Log.d(DEBUG, "Inserting - " + values.toString());
-
-            String key = values.get("key").toString();
-            String value = values.get("value").toString();
-
             Node coordinator = findCoordinator(key);
 
             Log.d(DEBUG, "From Node " + avdPort + " sending insert request for " + key + "-" + value + " to nodes "
@@ -220,22 +253,26 @@ public class SimpleDynamoProvider extends ContentProvider {
                     + coordinator.next.next.value.port);
 
             insertReplyMonitor = new Object();
-            insertReplyingNodes = new ArrayList<>();
+            insertReplyCounter = 0;
             notifyRequiredInsert = true;
+            insertMap.put(key, false);
 
-            ArrayList<String> currentPreferenceList = new ArrayList<>();
-            currentPreferenceList.add(coordinator.value.port);
-            currentPreferenceList.add(coordinator.next.value.port);
-            currentPreferenceList.add(coordinator.next.next.value.port);
+            long time = System.currentTimeMillis();
 
+            Log.d(DEBUG,
+                  "Sending insert req -> " + TYPE_INSERT + SEPARATOR + avdPort + SEPARATOR + key + SEPARATOR + value +
+                          TIMESTAMP_DELIMITER + time);
             new Thread(new ClientTask(coordinator.value.port,
-                                      TYPE_INSERT + SEPARATOR + key + SEPARATOR + value + SEPARATOR + avdPort))
+                                      TYPE_INSERT + SEPARATOR + avdPort + SEPARATOR + key + SEPARATOR + value +
+                                              TIMESTAMP_DELIMITER + time))
                     .start();
             new Thread(new ClientTask(coordinator.next.value.port,
-                                      TYPE_INSERT + SEPARATOR + key + SEPARATOR + value + SEPARATOR + avdPort))
+                                      TYPE_INSERT + SEPARATOR + avdPort + SEPARATOR + key + SEPARATOR + value +
+                                              TIMESTAMP_DELIMITER + time))
                     .start();
             new Thread(new ClientTask(coordinator.next.next.value.port,
-                                      TYPE_INSERT + SEPARATOR + key + SEPARATOR + value + SEPARATOR + avdPort))
+                                      TYPE_INSERT + SEPARATOR + avdPort + SEPARATOR + key + SEPARATOR + value +
+                                              TIMESTAMP_DELIMITER + time))
                     .start();
 
             try {
@@ -247,7 +284,13 @@ public class SimpleDynamoProvider extends ContentProvider {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            insertMap.put(key, true);
+            for (String name : insertMap.keySet()) {
 
+                String currKey = name.toString();
+                String currVal = insertMap.get(name).toString();
+                //System.out.println(currKey + " " + currVal);
+            }
         } catch (Exception e) {
             //TODO - remove this after testing
             Log.e(DEBUG, e.getMessage(), e);
@@ -256,7 +299,7 @@ public class SimpleDynamoProvider extends ContentProvider {
     }
 
     private File writeToLocalFile(String key, String value) {
-
+        Log.d(DEBUG, "Disk IO for - " + key + " with val -" + value);
         File file = new File(getContext().getFilesDir(), key);
         try (
                 FileOutputStream outputStream = new FileOutputStream(file);
@@ -278,10 +321,11 @@ public class SimpleDynamoProvider extends ContentProvider {
             Log.d(DEBUG, "Querying with selection = " + selection);
 
             sharedMatrixCursor = null;
+            cursorMap = null;
             queryMap.put(selection, false);
 
             if (selection.equals("\"@\"")) {
-                sharedMatrixCursor = queryLocalContent();
+                sharedMatrixCursor = queryLocalContent(false);
             } else if (selection.equals("\"*\"")) {
                 sharedMatrixCursor = queryNetworkContent();
             } else {
@@ -309,24 +353,24 @@ public class SimpleDynamoProvider extends ContentProvider {
 
                     synchronized (queryMonitor) {
                         if (notifyRequiredQuery) {
+                            Log.d(DEBUG, "Begin wait on query - " + selection);
                             queryMonitor.wait();
+                            queryMap.put(selection, true);
+                            Log.d(DEBUG, "Wait complete on query - " + selection);
                         }
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Log.d(DEBUG, "Wait is over. Starting query code again for " + selection);
-                sharedMatrixCursor.moveToFirst();
-                Log.d(DEBUG, "Cursor count = " + sharedMatrixCursor.getCount());
                 Log.d(DEBUG,
-                      "Cursor values = " + sharedMatrixCursor.getString(0) + ":" + sharedMatrixCursor.getString(1));
+                      "Cursor values = " + selection + ":" + cursorMap.get(selection));
+                sharedMatrixCursor = new MatrixCursor(sharedColumns);
+                sharedMatrixCursor.addRow(new Object[]{selection, cursorMap.get(selection)});
             }
         } catch (Exception e) {
             //TODO - remove this after testing
             Log.e(DEBUG, e.getMessage(), e);
         }
-
-        queryMap.put(selection, true);
         return sharedMatrixCursor;
     }
 
@@ -363,13 +407,12 @@ public class SimpleDynamoProvider extends ContentProvider {
         return matrixCursor;
     }
 
-    private MatrixCursor queryLocalContent() {
+    private MatrixCursor queryLocalContent(boolean forNw) {
         MatrixCursor matrixCursor = new MatrixCursor(sharedColumns);
 
         Log.d(DEBUG, "Begin local search");
 
         for (File currentLocalFile : getContext().getFilesDir().listFiles()) {
-            Log.d(DEBUG, "Retrieving content for local file = " + currentLocalFile.getName());
             try (
                     InputStreamReader inputStreamReader = new InputStreamReader(new
                                                                                         FileInputStream(
@@ -384,14 +427,19 @@ public class SimpleDynamoProvider extends ContentProvider {
                 }
 
                 String val = stringBuilder.toString();
-//                int len = val.length();
-                matrixCursor.addRow(new Object[]{currentLocalFile.getName(), val});
+                int len = val.length();
+                // matrixCursor.addRow(new Object[]{currentLocalFile.getName(), val});
+//                Log.d(DEBUG, "Contents for file -> " + currentLocalFile.getName() + " is " + val);
+//                Log.d(DEBUG, "Cursor insert -> " + currentLocalFile.getName() + " is " + val
+//                        .substring(0, val.lastIndexOf(TIMESTAMP_DELIMITER)));
 
-//                if (val.charAt(len - 1) == ORIGINAL_INDICATOR) {
-//                    matrixCursor.addRow(new Object[]{currentLocalFile.getName(), val.substring(0, len - 1)});
-//                } else {
-//                    matrixCursor.addRow(new Object[]{currentLocalFile.getName(), val});
-//                }
+                if (forNw) {
+                    matrixCursor.addRow(new Object[]{currentLocalFile.getName(),
+                                                     val});
+                } else {
+                    matrixCursor.addRow(new Object[]{currentLocalFile.getName(),
+                                                     val.substring(0, val.lastIndexOf(TIMESTAMP_DELIMITER))});
+                }
 
             } catch (FileNotFoundException e) {
                 Log.e(DEBUG, e.getMessage(), e);
@@ -400,8 +448,6 @@ public class SimpleDynamoProvider extends ContentProvider {
             }
 
         }
-
-
         return matrixCursor;
     }
 
@@ -411,7 +457,7 @@ public class SimpleDynamoProvider extends ContentProvider {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (File currentLocalFile : getContext().getFilesDir().listFiles()) {
-            Log.v(DEBUG, "Retrieving content for local file = " + currentLocalFile.getName());
+//            Log.v(DEBUG, "Retrieving content for local file = " + currentLocalFile.getName());
             try (
                     InputStreamReader inputStreamReader = new InputStreamReader(new
                                                                                         FileInputStream(
@@ -482,6 +528,14 @@ public class SimpleDynamoProvider extends ContentProvider {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+
+        //populate the cursor from the HashMap
+
+        sharedMatrixCursor = new MatrixCursor(sharedColumns);
+
+        for (String key : cursorMap.keySet()) {
+            sharedMatrixCursor.addRow(new Object[]{key, cursorMap.get(key)});
         }
         return sharedMatrixCursor;
     }
@@ -570,6 +624,7 @@ public class SimpleDynamoProvider extends ContentProvider {
         @Override
         synchronized public void run() {
             try {
+                Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
                 Log.d(DEBUG, "Server thread created");
 
                 synchronized (serverMonitor) {
@@ -585,264 +640,51 @@ public class SimpleDynamoProvider extends ContentProvider {
                         String[] split = line.split(SEPARATOR);
                         if (split[0].equals(TYPE_INSERT)) {
                             //Insert request from coordinator
-                            //"1" + SEPARATOR + key + SEPARATOR + value + SEPARATOR + avdPort
-                            Log.d(DEBUG, "TYPE_INSERT = " + line);
-                            String key = split[1];
-                            String value = split[2];
-                            String requestingNode = split[3];
-                            writeToLocalFile(key, value);
-
-                            Log.d(DEBUG,
-                                  "Completed insert req from coordinator for key - " + key + " value -" +
-                                          value);
-
-                            new Thread(new ClientTask(requestingNode,
-                                                      TYPE_INSERT_REPLY + SEPARATOR + avdPort + SEPARATOR + key
-                                                              + SEPARATOR + value))
-                                    .start();
-
-                            Log.d(DEBUG, "TYPE_INSERT completed");
+                            //TYPE_INSERT + SEPARATOR + avdPort + SEPARATOR + key + TIMESTAMP_DELIMITER + time
+                            // + SEPARATOR + value
+                            requestInsert(line, split);
                         } else if (split[0].equals(TYPE_INSERT_REPLY)) {
                             //Insert successful message from a node in preference list
                             //TYPE_INSERT_REPLY + SEPARATOR + avdPort + SEPARATOR + key + SEPARATOR + value
-                            Log.d(DEBUG, "TYPE_INSERT_REPLY = " + line);
-                            Log.d(DEBUG,
-                                  "Received insert completion message from Node - " + split[1] + " for key-value=" +
-                                          split[2] + "-" + split[3]);
-                            insertReplyingNodes.add(split[1]);
-
-                            Log.d(DEBUG,
-                                  "incremented the insert reply counter. insertReplyCounter = " + insertReplyingNodes
-                                          .size());
-
-                            if (insertReplyingNodes.size() == 2) {
-                                synchronized (insertReplyMonitor) {
-                                    notifyRequiredInsert = false;
-                                    Log.d(DEBUG,
-                                          "notifying insert method " + split[2]);
-                                    insertReplyMonitor.notifyAll();
-                                }
-                            }
-
-                            Log.d(DEBUG, "TYPE_INSERT_REPLY completed");
-
+                            replyInsert(line, split);
                         } else if (split[0].equals(TYPE_QUERY)) {
                             //Query request from a Node
                             //TYPE_QUERY + SEPARATOR + avdPort + SEPARATOR + selection
-                            Log.d(DEBUG, "TYPE_QUERY = " + line);
 
-                            String requestingPort = split[1];
-                            String selection = split[2];
-
-                            MatrixCursor matrixCursor = querySpecificContent(selection);
-                            matrixCursor.moveToFirst();
-                            StringBuilder stringBuilder =
-                                    new StringBuilder(TYPE_QUERY_REPLY + SEPARATOR + avdPort + SEPARATOR);
-                            while (!matrixCursor.isAfterLast()) {
-                                stringBuilder.append(matrixCursor.getString(0)).append(SEPARATOR)
-                                             .append(matrixCursor.getString(1));
-                                matrixCursor.moveToNext();
-                            }
-                            new Thread(new ClientTask(requestingPort, stringBuilder.toString())).start();
-
-                            Log.d(DEBUG, "TYPE_QUERY completed");
+                            requestQuery(line, split);
 
                         } else if (split[0].equals(TYPE_QUERY_REPLY)) {
                             //query and reply to this node
                             //TYPE_QUERY_REPLY + SEPARATOR + avdPort + SEPARATOR
 
-                            Log.d(DEBUG, "TYPE_QUERY_REPLY = " + line);
-                            String queryingPort = split[1];
-                            if (!queryMap.get(split[2])) {
-                                queryReplyCounter++;
-                            }
-
-                            if (sharedMatrixCursor == null) {
-                                sharedMatrixCursor = new MatrixCursor(sharedColumns);
-                            }
-
-                            for (int i = 2; i < split.length; i += 2) {
-                                String currentKey = split[i];
-                                String currentValue = split[i + 1];
-                                sharedMatrixCursor.addRow(new Object[]{currentKey, currentValue});
-                            }
-
-                            Log.d(DEBUG, "queryReplyCounter = " + queryReplyCounter);
-                            if (queryReplyCounter == 2) {
-                                synchronized (queryMonitor) {
-                                    notifyRequiredQuery = false;
-                                    Log.d(DEBUG,
-                                          "notifying query method " + split[2]);
-                                    queryMonitor.notifyAll();
-                                }
-                            }
-
-                            Log.d(DEBUG, "TYPE_QUERY_REPLY completed");
-
+                            replyQuery(line, split);
                         } else if (split[0].equals(TYPE_NW_QUERY)) {
                             //network search
-                            Log.d(DEBUG, "TYPE_NW_QUERY = " + line);
-                            String requestingPort = split[1];
-
-                            MatrixCursor localSearchCursor = queryLocalContent();
-                            localSearchCursor.moveToFirst();
-                            StringBuilder stringBuilder =
-                                    new StringBuilder(TYPE_NW_QUERY_REPLY + SEPARATOR + avdPort + SEPARATOR);
-                            while (!localSearchCursor.isAfterLast()) {
-                                stringBuilder.append(localSearchCursor.getString(0) + SEPARATOR +
-                                                             localSearchCursor.getString(1) + SEPARATOR);
-                                localSearchCursor.moveToNext();
-                            }
-                            new Thread(new ClientTask(requestingPort, stringBuilder.toString())).start();
-
-//                            if (!requestingPort.equals(avdPort)) {
-//                                //Don't forward if this is the requesting port.
-//                                new Thread(new ClientTask(successor.value.port, line)).start();
-//                            }
-
-                            Log.d(DEBUG, "TYPE_NW_QUERY completed");
+                            requestNwQuery(line, split[1]);
 
                         } else if (split[0].equals(TYPE_NW_QUERY_REPLY)) {
                             //network search
                             //collate the data and finish MatrixCursor. notify the lock once done.
-                            Log.d(DEBUG, "TYPE_NW_QUERY_REPLY = " + line);
-
-                            String[] data = line.split(SEPARATOR);
-                            String replyingPort = data[1];
-                            networkQueryReplyCounter++;
-                            if (sharedMatrixCursor == null) {
-                                sharedMatrixCursor = new MatrixCursor(sharedColumns);
-                            }
-
-                            for (int i = 2; i < data.length; i += 2) {
-                                String currentKey = data[i];
-                                String currentValue = data[i + 1];
-                                sharedMatrixCursor.addRow(new Object[]{currentKey, currentValue});
-
-//                                if (currentValue.charAt(currentValue.length() - 1) == ORIGINAL_INDICATOR) {
-//                                    sharedMatrixCursor.addRow(new Object[]{currentKey, currentValue
-//                                            .substring(0, currentValue.length() - 1)});
-//                                } else {
-//                                    sharedMatrixCursor.addRow(new Object[]{currentKey, currentValue});
-//                                }
-                            }
-
-                            if (networkQueryReplyCounter == 5) {
-                                synchronized (networkQueryMonitor) {
-                                    networkQueryMonitor.notifyAll();
-                                }
-                            }
-
-                            Log.d(DEBUG, "TYPE_NW_QUERY_REPLY completed");
-
+                            replyNwQuery(line);
                         } else if (split[0].equals(TYPE_DELETE)) {
                             //TYPE_DELETE + SEPARATOR + avdPort + SEPARATOR + selection
-                            Log.d(DEBUG, "TYPE_DELETE = " + line);
-
-                            String requestingPort = split[1];
-                            String selection = split[2];
-
-                            if (selection.equals("\"@\"")) {
-                                deleteLocalContent();
-                            } else {
-                                deleteSpecificFile(selection);
-                            }
-
-                            new Thread(new ClientTask(requestingPort, TYPE_DELETE_REPLY + SEPARATOR + avdPort)).start();
-
-                            Log.d(DEBUG, "TYPE_DELETE completed");
+                            requestDelete(line, split);
 
                         } else if (split[0].equals(TYPE_DELETE_REPLY)) {
                             //TYPE_DELETE_REPLY + SEPARATOR + avdPort
-                            Log.d(DEBUG, "TYPE_DELETE_REPLY = " + line);
+                            replyDelete(line, split[1]);
 
-                            String requestingPort = split[1];
-                            Log.d(DEBUG, "Current deletion counter - " + deleteReplyCounter);
-                            deleteReplyCounter++;
-                            if (deleteReplyCounter == 2) {
-                                synchronized (deleteMonitor) {
-                                    notifyRequiredDelete = false;
-                                    deleteMonitor.notifyAll();
-                                }
-                            }
-
-                            Log.d(DEBUG, "TYPE_DELETE_REPLY completed");
 
                         } else if (split[0].equals(TYPE_NW_DELETE)) {
-                            Log.d(DEBUG, "TYPE_NW_DELETE = " + line);
-
-                            String[] data = line.split(SEPARATOR);
-                            String deleteInitiatorPort = data[1];
-                            Log.d(DEBUG, "Deleting local files");
-                            deleteLocalContent();
-                            if (!deleteInitiatorPort.equals(successor.toString())) {
-                                //forward to the next node
-                                Log.d(DEBUG, "Local files deleted. Forwarding the request to the next node");
-                                new Thread(new ClientTask(successor.toString(), line));
-                            } else {
-                                Log.d(DEBUG, "Loop complete. Done deleting");
-                            }
-
-                            Log.d(DEBUG, "TYPE_NW_DELETE completed");
+                            requestNwDelete(line);
                         } else if (split[0].equals(TYPE_REJOIN_QUERY)) {
                             //Query request from a Node
                             //TYPE_REJOIN_QUERY + SEPARATOR + avdPort
-                            Log.d(DEBUG, "TYPE_REJOIN_QUERY = " + line);
-
-                            String requestingPort = split[1];
-
-                            StringBuilder stringBuilder =
-                                    new StringBuilder(
-                                            TYPE_REJOIN_REPLY + SEPARATOR + avdPort + SEPARATOR +
-                                                    queryLocalContentInternal());
-                            String rejoinReplyMsg = stringBuilder.toString();
-                            int len = rejoinReplyMsg.length();
-                            if (rejoinReplyMsg.charAt(len - 1) == SEPARATOR.charAt(0)) {
-                                rejoinReplyMsg = rejoinReplyMsg.substring(0, len - 1);
-                            }
-                            new Thread(new ClientTask(requestingPort, rejoinReplyMsg)).start();
-
-                            Log.d(DEBUG, "TYPE_REJOIN_QUERY completed");
+                            requestRejoin(line, split[1]);
                         } else if (split[0].equals(TYPE_REJOIN_REPLY)) {
                             //network search
                             //collate the data and finish MatrixCursor. notify the lock once done.
-                            Log.d(DEBUG, "TYPE_REJOIN_REPLY = " + line);
-
-                            String[] data = line.split(SEPARATOR);
-                            String replyingPort = data[1];
-
-                            for (int i = 2; i < data.length; i += 2) {
-                                String currentKey = data[i];
-                                String currentValue = data[i + 1];
-                                // sharedMatrixCursor.addRow(new Object[]{data[i], data[i + 1]});
-                                Node coordinator = findCoordinator(currentKey);
-                                if (coordinator.equals(firstPredecessor) || coordinator
-                                        .equals(firstPredecessor.next) || coordinator.toString().equals(avdPort)) {
-                                    writeToLocalFile(currentKey, currentValue);
-                                }
-
-//                                if (firstPredecessor.toString().equals(replyingPort) || firstPredecessor.next
-// .toString()
-//
-// .equals(replyingPort)) {
-//                                    if (currentValue.charAt(currentValue.length() - 1) == ORIGINAL_INDICATOR) {
-//                                        currentValue = currentValue.substring(0, currentValue.length() - 1);
-//                                        writeToLocalFile(currentKey, currentValue);
-//                                        Log.d(DEBUG,
-//                                              "Wrote key(" + currentKey + ")-(" + currentValue + ") to the server");
-//                                    }
-//                                } else {
-//                                    if (currentValue.charAt(currentValue.length() - 1) != ORIGINAL_INDICATOR) {
-//                                        currentValue = currentValue + ORIGINAL_INDICATOR;
-//                                        writeToLocalFile(currentKey, currentValue);
-//                                        Log.d(DEBUG,
-//                                              "Wrote key(" + currentKey + ")-(" + currentValue + ") to the server");
-//                                    }
-//                                }
-                            }
-
-                            Log.d(DEBUG, "TYPE_REJOIN_REPLY completed");
-
+                            replyRejoin(line);
                         }
 
                         client.close();
@@ -853,6 +695,304 @@ public class SimpleDynamoProvider extends ContentProvider {
             } catch (Exception e) {
                 //TODO - remove this after testing
                 Log.e(DEBUG, e.getMessage(), e);
+            }
+        }
+
+        private void replyRejoin(String line) throws IOException {
+            Log.d(DEBUG, "TYPE_REJOIN_REPLY = " + line);
+
+            rejoinReplyCounter++;
+
+            String[] data = line.split(SEPARATOR);
+            String replyingPort = data[1];
+
+            for (int i = 2; i < data.length; i += 2) {
+                String currentKey = data[i];
+                String currentValue = data[i + 1];
+                // sharedMatrixCursor.addRow(new Object[]{data[i], data[i + 1]});
+                Node coordinator = findCoordinator(currentKey);
+
+                if (coordinator.equals(firstPredecessor) || coordinator
+                        .equals(firstPredecessor.next) || coordinator.toString().equals(avdPort)) {
+                    File file = new File(getContext().getFilesDir() + File.separator + currentKey);
+                    if (file.exists()) {
+                        checkTimeAndWrite(currentKey, currentValue, file);
+                    } else {
+                        Log.d(DEBUG,
+                              "File " + getContext()
+                                      .getFilesDir() + File.separator + currentKey + " does not " +
+                                      "exists");
+                        writeToLocalFile(currentKey, currentValue);
+                    }
+                }
+            }
+            Log.d(DEBUG, "TYPE_REJOIN_REPLY completed");
+            if (rejoinReplyCounter == 4) {
+                synchronized (rejoinMonitor) {
+                    notifyRequiredRejoin = false;
+                    rejoinMonitor.notifyAll();
+                }
+            }
+        }
+
+        private void requestRejoin(String line, String s) {
+            Log.d(DEBUG, "TYPE_REJOIN_QUERY = " + line);
+
+            String requestingPort = s;
+
+            StringBuilder stringBuilder =
+                    new StringBuilder(
+                            TYPE_REJOIN_REPLY + SEPARATOR + avdPort + SEPARATOR +
+                                    queryLocalContentInternal());
+            String rejoinReplyMsg = stringBuilder.toString();
+            int len = rejoinReplyMsg.length();
+            if (rejoinReplyMsg.charAt(len - 1) == SEPARATOR.charAt(0)) {
+                rejoinReplyMsg = rejoinReplyMsg.substring(0, len - 1);
+            }
+            new Thread(new ClientTask(requestingPort, rejoinReplyMsg)).start();
+
+            Log.d(DEBUG, "TYPE_REJOIN_QUERY completed");
+        }
+
+        private void requestNwDelete(String line) {
+            Log.d(DEBUG, "TYPE_NW_DELETE = " + line);
+
+            String[] data = line.split(SEPARATOR);
+            String deleteInitiatorPort = data[1];
+            Log.d(DEBUG, "Deleting local files");
+            deleteLocalContent();
+            if (!deleteInitiatorPort.equals(successor.toString())) {
+                //forward to the next node
+                Log.d(DEBUG, "Local files deleted. Forwarding the request to the next node");
+                new Thread(new ClientTask(successor.toString(), line));
+            } else {
+                Log.d(DEBUG, "Loop complete. Done deleting");
+            }
+
+            Log.d(DEBUG, "TYPE_NW_DELETE completed");
+        }
+
+        private void replyDelete(String line, String s) {
+            Log.d(DEBUG, "TYPE_DELETE_REPLY = " + line);
+
+            String requestingPort = s;
+            Log.d(DEBUG, "Current deletion counter - " + deleteReplyCounter);
+            deleteReplyCounter++;
+
+            Log.d(DEBUG, "TYPE_DELETE_REPLY completed");
+
+            if (deleteReplyCounter == 2) {
+                synchronized (deleteMonitor) {
+                    notifyRequiredDelete = false;
+                    deleteMonitor.notifyAll();
+                }
+            }
+        }
+
+        private void requestDelete(String line, String[] split) {
+            Log.d(DEBUG, "TYPE_DELETE = " + line);
+
+            String requestingPort = split[1];
+            String selection = split[2];
+
+            if (selection.equals("\"@\"")) {
+                deleteLocalContent();
+            } else {
+                deleteSpecificFile(selection);
+            }
+
+            new Thread(new ClientTask(requestingPort, TYPE_DELETE_REPLY + SEPARATOR + avdPort)).start();
+
+            Log.d(DEBUG, "TYPE_DELETE completed");
+        }
+
+        private void replyNwQuery(String line) {
+            Log.d(DEBUG, "TYPE_NW_QUERY_REPLY = " + line);
+
+            String[] data = line.split(SEPARATOR);
+            String replyingPort = data[1];
+            networkQueryReplyCounter++;
+            if (cursorMap == null) {
+                cursorMap = new HashMap<>();
+            }
+
+            for (int i = 2; i < data.length; i += 2) {
+                String currentKey = data[i];
+                String currentValue = data[i + 1];
+                if (cursorMap.get(currentKey) != null) {
+                    if (cursorMap.get(currentKey)
+                                 .compareTo(currentValue) < 0) {
+                        cursorMap.put(currentKey, currentValue
+                                .substring(0, currentValue.lastIndexOf(TIMESTAMP_DELIMITER)));
+                    }
+                } else {
+                    cursorMap.put(currentKey, currentValue
+                            .substring(0, currentValue.lastIndexOf(TIMESTAMP_DELIMITER)));
+                }
+            }
+            Log.d(DEBUG, "TYPE_NW_QUERY_REPLY completed");
+
+            if (networkQueryReplyCounter == 5) {
+                synchronized (networkQueryMonitor) {
+                    networkQueryMonitor.notifyAll();
+                }
+            }
+        }
+
+        private void requestNwQuery(String line, String s) {
+            Log.d(DEBUG, "TYPE_NW_QUERY = " + line);
+            String requestingPort = s;
+
+            MatrixCursor localSearchCursor = queryLocalContent(true);
+            localSearchCursor.moveToFirst();
+            StringBuilder stringBuilder =
+                    new StringBuilder(TYPE_NW_QUERY_REPLY + SEPARATOR + avdPort + SEPARATOR);
+            while (!localSearchCursor.isAfterLast()) {
+                stringBuilder.append(localSearchCursor.getString(0) + SEPARATOR +
+                                             localSearchCursor.getString(1) + SEPARATOR);
+                localSearchCursor.moveToNext();
+            }
+            new Thread(new ClientTask(requestingPort, stringBuilder.toString())).start();
+
+            Log.d(DEBUG, "TYPE_NW_QUERY completed");
+        }
+
+        private void replyQuery(String line, String[] split) {
+            Log.d(DEBUG, "TYPE_QUERY_REPLY = " + line);
+            String queryingPort = split[1];
+            if (!queryMap.get(split[2])) {
+                queryReplyCounter++;
+
+                if (cursorMap == null) {
+                    cursorMap = new HashMap<>();
+                }
+
+                for (int i = 2; i < split.length; i += 2) {
+                    String currentKey = split[i];
+                    String currentValue = split[i + 1];
+                    Log.d(DEBUG, "TYPE_QUERY_REPLY-" + currentKey);
+                    Log.d(DEBUG, "TYPE_QUERY_REPLY-" + currentValue);
+
+                    if (cursorMap.get(currentKey) != null) {
+                        if (cursorMap.get(currentKey)
+                                     .compareTo(currentValue) < 0) {
+                            cursorMap.put(currentKey, currentValue
+                                    .substring(0, currentValue.lastIndexOf(TIMESTAMP_DELIMITER)));
+                        }
+                    } else {
+                        cursorMap.put(currentKey, currentValue
+                                .substring(0, currentValue.lastIndexOf(TIMESTAMP_DELIMITER)));
+                    }
+                }
+
+                Log.d(DEBUG, "queryReplyCounter = " + queryReplyCounter);
+
+                Log.d(DEBUG, "TYPE_QUERY_REPLY completed");
+
+                if (queryReplyCounter == 2) {
+                    synchronized (queryMonitor) {
+                        notifyRequiredQuery = false;
+                        Log.d(DEBUG,
+                              "notifying query method " + split[2]);
+                        queryMonitor.notifyAll();
+                    }
+                }
+            }
+        }
+
+        private void requestQuery(String line, String[] split) {
+            Log.d(DEBUG, "TYPE_QUERY = " + line);
+
+            String sendingPort = split[1];
+            String selection = split[2];
+
+            MatrixCursor matrixCursor = querySpecificContent(selection);
+            matrixCursor.moveToFirst();
+            StringBuilder stringBuilder =
+                    new StringBuilder(TYPE_QUERY_REPLY + SEPARATOR + avdPort + SEPARATOR);
+            while (!matrixCursor.isAfterLast()) {
+                stringBuilder.append(matrixCursor.getString(0)).append(SEPARATOR)
+                             .append(matrixCursor.getString(1));
+                matrixCursor.moveToNext();
+            }
+            Log.d(DEBUG, "When querying for " + selection + " - found - " + stringBuilder.toString());
+            new Thread(new ClientTask(sendingPort, stringBuilder.toString())).start();
+
+            Log.d(DEBUG, "TYPE_QUERY completed");
+        }
+
+        private void replyInsert(String line, String[] split) {
+            Log.d(DEBUG, "TYPE_INSERT_REPLY = " + line);
+
+            String sendingPort = split[1];
+            String key = split[2];
+            String val = split[3];
+
+            Log.d(DEBUG,
+                  "Received insert completion message from Node - " + sendingPort + " for key-value=" +
+                          key + "-" + val);
+
+            if (!insertMap.get(key)) {
+                insertReplyCounter++;
+
+
+                Log.d(DEBUG, "InsertReplyCounter = " + insertReplyCounter);
+                Log.d(DEBUG, "TYPE_INSERT_REPLY completed");
+
+                if (insertReplyCounter == 2) {
+                    synchronized (insertReplyMonitor) {
+                        notifyRequiredInsert = false;
+                        Log.d(DEBUG,
+                              "notifying insert method " + key);
+                        insertReplyMonitor.notifyAll();
+                    }
+                }
+            }
+        }
+
+        private void requestInsert(String line, String[] split) throws IOException {
+            Log.d(DEBUG, "TYPE_INSERT = " + line);
+            String sendingPort = split[1];
+            String key = split[2];
+            String val = split[3];
+
+            File file = new File(getContext().getFilesDir() + File.separator + key);
+            if (file.exists()) {
+                checkTimeAndWrite(key, val, file);
+            } else {
+                Log.d(DEBUG,
+                      "File " + getContext().getFilesDir() + File.separator + key + " does not exists");
+                writeToLocalFile(key, val);
+            }
+            Log.d(DEBUG,
+                  "Completed insert req from coordinator" + sendingPort + " for key - " + key + " " +
+                          "value -" + val);
+
+            new Thread(new ClientTask(sendingPort,
+                                      TYPE_INSERT_REPLY + SEPARATOR + avdPort + SEPARATOR + key
+                                              + SEPARATOR + val))
+                    .start();
+
+            Log.d(DEBUG, "TYPE_INSERT completed");
+        }
+
+        private void checkTimeAndWrite(String currentKey, String currentValue, File file) throws IOException {
+            Log.d(DEBUG,
+                  "File " + getContext().getFilesDir() + File.separator + currentKey + " already exists");
+            BufferedReader fileReader = new BufferedReader(new FileReader(file));
+            String fileContent = fileReader.readLine();
+
+            long timeInFile = Long.parseLong(fileContent.substring(fileContent.indexOf(TIMESTAMP_DELIMITER) + 1));
+            long timeInMsg = Long.parseLong(currentValue.substring(currentValue.indexOf(TIMESTAMP_DELIMITER) + 1));
+            Log.d(DEBUG, "Timestamp in file - " + timeInFile);
+            Log.d(DEBUG, "Contents of file : " + fileContent);
+            Log.d(DEBUG, "Timestamp in msg - " + timeInMsg);
+            Log.d(DEBUG, "Contents of msg : " + currentValue);
+
+            if (timeInFile < timeInMsg) {
+                Log.d(DEBUG, "Time in file is less than time in msg. Overwriting  with " +
+                        "new msg");
+                writeToLocalFile(currentKey, currentValue);
             }
         }
 
@@ -878,12 +1018,11 @@ public class SimpleDynamoProvider extends ContentProvider {
                         OutputStream os = socket.getOutputStream();
                 ) {
 
-                    Log.v(DEBUG, "ClientTask - Sending the message - " + messageToServer + " to - " + portToWrite);
+//                    Log.v(DEBUG, "ClientTask - Sending the message - " + messageToServer + " to - " + portToWrite);
                     os.write(messageToServer.getBytes());
                     os.flush();
-                    Log.v(DEBUG, "ClientTask - Message " + messageToServer + " flushed from client to - " +
-                            portToWrite);
-
+//                    Log.v(DEBUG, "ClientTask - Message " + messageToServer + " flushed from client to - " +
+//                            portToWrite);
                     socket.close();
                 } catch (IOException e) {
                     Log.e(DEBUG, e.getMessage(), e);
